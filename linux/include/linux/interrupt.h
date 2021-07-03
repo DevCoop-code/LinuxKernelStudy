@@ -108,18 +108,18 @@ typedef irqreturn_t (*irq_handler_t)(int, void *);
  * @dir:	pointer to the proc/irq/NN/name entry
  */
 struct irqaction {
-	irq_handler_t		handler;
+	irq_handler_t		handler; 			// 인터럽트 핸들러 함수
 	void			*dev_id;
 	void __percpu		*percpu_dev_id;
 	struct irqaction	*next;
 	irq_handler_t		thread_fn;
 	struct task_struct	*thread;
 	struct irqaction	*secondary;
-	unsigned int		irq;
+	unsigned int		irq; 				// 인터럽트 번호
 	unsigned int		flags;
 	unsigned long		thread_flags;
 	unsigned long		thread_mask;
-	const char		*name;
+	const char		*name; 					// 문자열 타입의 인터럽트 이름
 	struct proc_dir_entry	*dir;
 } ____cacheline_internodealigned_in_smp;
 
